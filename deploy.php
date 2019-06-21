@@ -34,11 +34,11 @@ host('root@47.106.185.192')
 // Tasks
 
 task('update', function () {
-    run('chown -R nginx:nginx . && chmod -R 777 storage && echo "" > storage/logs/laravel.log');
+    run('cd /var/www/lb-test && git pull && chown -R nginx:nginx . && chmod -R 777 storage && echo "" > storage/logs/laravel.log');
 });
 
 // [Optional] if deploy fails automatically unlock.
-after('deploy:failed', 'deploy:unlock');
+//after('deploy:failed', 'deploy:unlock');
 
 // Migrate database before symlink new release.
 
