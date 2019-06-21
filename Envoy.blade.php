@@ -7,5 +7,4 @@
     chmod -R 777 storage
     echo "" > storage/logs/laravel.log
     composer install --no-dev
-    php artisan migrate
 @endtask
