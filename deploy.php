@@ -23,22 +23,22 @@ add('writable_dirs', []);
 // Hosts
 
 host('root@120.25.207.77')
-    ->set('deploy_path', '/var/www/lb-test');
+    ->set('deploy_path', '/var/www');
 
 host('root@120.79.191.149')
-    ->set('deploy_path', '/var/www/lb-test');
+    ->set('deploy_path', '/var/www');
 
 host('root@47.106.185.192')
-    ->set('deploy_path', '/var/www/lb-test');
+    ->set('deploy_path', '/var/www');
     
 // Tasks
 
 task('update', function () {
-    run('./update.sh');
+    run('chown -R nginx:nginx . && chmod -R 777 storage && echo "" > storage/logs/laravel.log');
 });
 
 // [Optional] if deploy fails automatically unlock.
-//after('deploy:failed', 'deploy:unlock');
+after('deploy:failed', 'deploy:unlock');
 
 // Migrate database before symlink new release.
 
