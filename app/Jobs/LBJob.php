@@ -30,6 +30,6 @@ class LBJob implements ShouldQueue
      */
     public function handle()
     {
-        Log::info("LBJob ".now()->toDateTimeString());
+        Log::error("LBJob ".now()->toDateTimeString());
     }
 }
