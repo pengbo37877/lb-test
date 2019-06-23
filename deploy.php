@@ -34,7 +34,7 @@ host('root@47.106.185.192')
 // Tasks
 
 task('update', function () {
-    run('cd /var/www/lb-test && git pull && chown -R nginx:nginx . && chmod -R 777 storage && echo "" > storage/logs/laravel.log');
+    run('cd /var/www/lb-test && git pull && composer install && chown -R nginx:nginx . && chmod -R 777 storage && echo "" > storage/logs/laravel.log');
 });
 
 // [Optional] if deploy fails automatically unlock.
