@@ -27,7 +27,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->job(new LBJob())->everyMinute()->onOneServer();
+        $schedule->job(new LBJob())
+            ->everyMinute()
+            ->withoutOverlapping()
+            ->onOneServer();
     }
 
     /**
